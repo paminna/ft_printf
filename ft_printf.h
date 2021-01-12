@@ -6,7 +6,7 @@
 /*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:07:12 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/12 01:32:52 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/12 22:53:26 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ typedef struct s_flags
 	char c;
 }				t_flags;
 
-int ft_parser(const char *str, t_flags *flags, int len, va_list arg);
+int ft_process(const char *str, t_flags *flags, int len, va_list arg);
 int ft_printf(const char *format, ...);
 char	*ft_strchr(const char *s, int c);
 t_flags ft_parse_flags(t_flags *flags, const char *str, int *len, va_list arg);

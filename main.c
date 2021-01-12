@@ -6,13 +6,14 @@
 /*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 22:23:26 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/12 01:39:02 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/12 20:50:54 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_printf.h"
 #include <stdio.h>
 
 int main(void)
 {
-	printf("%5.5s", "hello");
+	ft_printf("%s", "hello");
 }

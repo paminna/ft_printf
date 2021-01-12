@@ -6,7 +6,7 @@
 /*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:06:24 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/12 01:41:38 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/12 22:50:25 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_flags ft_parse_flags(t_flags *flags, const char *str, int *len, va_list arg)
 
 	i = *len;
 	ft_initialize(flags);
-	while (str[i] != (char)ft_strchr("cspdiuxX%", str[i]))
+	while (ft_strchr("cspdiuxX%", str[i]) != NULL)
 	{
 		// флаг пробел (бонус)
 		// if (str[i] == ' ')
@@ -83,18 +83,18 @@ t_flags ft_parse_flags(t_flags *flags, const char *str, int *len, va_list arg)
 			flags->width = flags->width * 10 + '0';
 		}
 			//my
-	// 	// ширина
-	// 	if ((str[i] >= 0 && str[i] <= 9) && (str[i - 1] != '.'))
-	// 		flags->width = str[i] * 10 + '0';
-	// 	else if (str[i] == '*')
-	// 		flags->star_width = va_arg(arg, int);
-	// 	// точность
-	// 	if (str[i] >= 0 && str[i] <= 9 && str[i - 1] == '.')
-	// 		flags->precision = str[i];
-	// 	else if (str[i] == '*' && str[i - 1] == '.')
-	// 		flags->star_p= va_arg(arg, int);
-	// 	else if ((!(str[i] >= 0 && str[i] <= 9) && !(str[i] == '*')) && (str[i - 1] != '.'))
-	// 		flags->precision = 0;
+		// // ширина
+		// if ((str[i] >= 0 && str[i] <= 9) && (str[i - 1] != '.'))
+		// 	flags->width = str[i] * 10 + '0';
+		// else if (str[i] == '*')
+		// 	flags->star_width = va_arg(arg, int);
+		// // точность
+		// if (str[i] >= 0 && str[i] <= 9 && str[i - 1] == '.')
+		// 	flags->precision = str[i];
+		// else if (str[i] == '*' && str[i - 1] == '.')
+		// 	flags->star = va_arg(arg, int);
+		// else if ((!(str[i] >= 0 && str[i] <= 9) && !(str[i] == '*')) && (str[i - 1] != '.'))
+		// 	flags->precision = 0;
 		i++;
 	}
 	// тип
@@ -149,7 +149,7 @@ int ft_parser(const char *str, t_flags *flags, int len, va_list arg)
 	}
 	if (flags->c == 's')
 	{
-		if (str == NULL)
+		// if (str == NULL)
 			//return(NULL);
 		if (flags->precision >= 0 && flags->precision > ft_strlen(str))
 			flags->precision = ft_strlen(str);
@@ -179,9 +179,8 @@ int ft_parser(const char *str, t_flags *flags, int len, va_list arg)
 			}
 		}
 	}
-	if (flags->c == 'd')
+	if (flags->c == 'p')
 	{
-
 	}
 	return (len);
 }
