@@ -6,7 +6,7 @@
 /*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 22:16:58 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/29 00:10:58 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/29 00:36:25 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,21 @@ void ft_process_int(t_flags *flags, va_list arg)
 	}
 	if (flags->minus == 0)
 	{
+		printf("%d", flags->zero);
+		if (flags->zero == 1)
+		{
+			while (flags->width-- != 0)
+				ft_putchar(flags, '0');
+		}
 		if (flags->precision - size > 0)
 		{
 			while (flags->width-- - 1 > flags->precision)
 				ft_putchar(flags, ' ');
+			if (s[i] == '-')
+			{	
+				ft_putchar(flags, s[i++]);
+				size--;
+			}
 			while (flags->precision-- - size > 0)
 				ft_putchar(flags, '0');
 			while (flags->precision-- - size > 0)
@@ -101,10 +112,7 @@ void ft_process_int(t_flags *flags, va_list arg)
 			while (flags->width-- - size > 0)
 				ft_putchar(flags, ' ');
 	}
-	if (flags->zero == 1)
-	{
-		// что-то сделать
-	}
+	
 	while (s[i] != '\0')
 		ft_putchar(flags, s[i++]);
 	// while (s[i] != '\0')
