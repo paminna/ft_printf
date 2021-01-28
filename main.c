@@ -3,17 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: paminna <paminna@stud.21-school.ru>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 22:23:26 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/12 20:50:54 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/28 00:29:25 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int main(void)
+int main()
 {
-	ft_printf("%s", "hello");
+	ft_printf("Hello, %-10.4d0\n", 123);
+	printf("Hello, %-10.4d", 123);
+	// printf("Hello, %s\n", "world!");
+	// printf("%s\n", "----");
+	// ft_printf("hello %c", 'a');
 }

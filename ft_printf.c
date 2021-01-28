@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
+/*   By: paminna <paminna@stud.21-school.ru>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 20:54:11 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/12 21:33:31 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/27 17:43:10 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,26 @@
 
 int ft_printf(const char *format, ...)
 {
-	int len;
+	int i;
 	va_list arg;
 	t_flags flags;
-	const char *str;
 
-	len = 0;
+	i = 0;
+	flags.len = 0;
 	va_start(arg, format);
-	str = (char*)malloc(ft_strlen(format) + 1);
-	str = format;
-	while (str[len] != '\0')
+	while (format[i] != '\0')
 	{
-		while (str[len] != '%')
-			write (1, &str[len++], 1);
-		len++;
-		ft_parser(str, &flags, len, arg);
+		while (format[i] != '%' && format[i] != '\0')
+			ft_putchar(&flags, format[i++]);
+		if (format[i] == '\0')
+			break;
+		i++;
+		ft_parser(&flags, &format[i], arg);
+		while (format[i] != flags.c)
+			i++;
+		i++;
+		ft_process(&flags, arg);
 	}
 	va_end(arg);
-	return (len);
-}
-
-int main()
-{
-	// ft_printf("Hello, %s", "world!");
-	// ft_printf("Hello, %-08.*s", "world!");
-	ft_printf("hello %c", 'c');
+	return (flags.len);
 }
