@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paminna <paminna@stud.21-school.ru>        +#+  +:+       +#+        */
+/*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 21:55:14 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/27 23:17:16 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/28 20:11:26 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,46 @@ void ft_putchar(t_flags *flags, char sym)
 {
 	write(1, &sym, 1);
 	flags->len++;
+}
+
+int		n_len(int n)
+{
+	int	len;
+
+	len = 0;
+	if (n < 0 || n == 0)
+		len = 1;
+	while (n)
+	{
+		n = n / 10;
+		len++;
+	}
+	return (len);
+}
+
+char	*ft_itoa(int n)
+{
+	char			*res;
+	int				len;
+	unsigned int	nbr;
+
+	nbr = n;
+	len = n_len(n);
+	res = (char*)malloc(len + 1);
+	if (res == 0)
+		return (NULL);
+	res[len--] = '\0';
+	if (n < 0)
+	{
+		res[0] = '-';
+		nbr = n * -1;
+	}
+	if (n == 0)
+		res[0] = '0';
+	while (nbr != 0)
+	{
+		res[len--] = nbr % 10 + '0';
+		nbr = nbr / 10;
+	}
+	return (res);
 }

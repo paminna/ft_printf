@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_parser.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: paminna <paminna@stud.21-school.ru>        +#+  +:+       +#+        */
+/*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:06:24 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/27 22:46:03 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/28 17:54:16 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,6 @@ t_flags ft_initialize(t_flags  *flags)
 	flags->width = 0;
 	flags->star= 0;
 	flags->precision = -1;
-	flags->space = 0;
-	flags->sharp = 0;
-	flags->plus = 0;
 	flags->c = 0;
 	return (*flags);
 }
