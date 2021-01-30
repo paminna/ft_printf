@@ -1,50 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_numbers_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/11 21:55:14 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/29 15:19:18 by paminna          ###   ########.fr       */
+/*   Created: 2021/01/29 18:31:14 by paminna           #+#    #+#             */
+/*   Updated: 2021/01/29 21:56:23 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	ft_strchr(const char *s, int c)
-{
-	int i;
-
-	i = 0;
-	while (s[i])
-	{
-		if (s[i] == c)
-			return (s[i]);
-		i++;
-	}
-	if (s[i] == c)
-		return (s[i]);
-	return (0);
-}
-
-int	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-void ft_putchar(t_flags *flags, char sym)
-{
-	write(1, &sym, 1);
-	flags->len++;
-}
-
-int		n_len(int n)
+int		n_len_u(unsigned int n)
 {
 	int	len;
 
@@ -59,29 +27,40 @@ int		n_len(int n)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa_u(unsigned int n)
 {
 	char			*res;
 	int				len;
-	unsigned int	nbr;
 
-	nbr = n;
-	len = n_len(n);
+	len = n_len_u(n);
 	res = (char*)malloc(len + 1);
 	if (res == 0)
 		return (NULL);
 	res[len--] = '\0';
-	if (n < 0)
-	{
-		res[0] = '-';
-		nbr = n * -1;
-	}
 	if (n == 0)
 		res[0] = '0';
-	while (nbr != 0)
+	while (n != 0)
 	{
-		res[len--] = nbr % 10 + '0';
-		nbr = nbr / 10;
+		res[len--] = n % 10 + '0';
+		n = n / 10;
 	}
 	return (res);
+}
+
+void ft_process_u(t_flags *flags, va_list arg)
+{
+	int i;
+	char *s;
+	int size;
+
+	s = ft_itoa_u(va_arg(arg, unsigned int));
+	i = 0;
+	size = ft_strlen(s);
+	if (flags->minus == 1)
+		ft_minus_help(flags, s, &i, size);
+	if (flags->minus == 0)
+		ft_positive_help(flags, s, &i, size);
+	while (s[i] != '\0')
+		ft_putchar(flags, s[i++]);
+	free(s);
 }

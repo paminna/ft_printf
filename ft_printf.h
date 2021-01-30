@@ -6,7 +6,7 @@
 /*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:07:12 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/29 00:17:59 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/30 16:08:47 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,24 @@ void 	ft_process_int_help(t_flags *flags, char *s, int i);
 void 	ft_process_int_help_2(t_flags *flags, char *s, int i);
 int		n_len(int n);
 char	*ft_itoa(int n);
+void 	ft_minus_help(t_flags *flags, char *s, int *i, int size);
+void 	ft_positive_help(t_flags *flags, char *s, int *i, int size);
+void 	ft_minus_help_2(t_flags *flags, char *s, int *c, int size);
+void 	ft_positive_help_2(t_flags *flags, char *s, int *c, int size);
+void 	ft_process_percent(t_flags *flags);
+void 	ft_process_u(t_flags *flags, va_list arg);
+char	*ft_itoa_u(unsigned int n);
+int		n_len_u(unsigned int n);
+void 	ft_process_x(t_flags *flags, va_list arg);
+char	*ft_itoa_base(unsigned int n, unsigned int base);
+int		n_len_base(unsigned long int n);
+char	*ft_itoa_base_X(unsigned int n, unsigned int base);
+void 	ft_process_X(t_flags *flags, va_list arg);
+char	*ft_itoa_base_p(unsigned long int n, unsigned int base);
+void 	ft_process_p(t_flags *flags, va_list arg);
+void 	ft_positive_help_p(t_flags *flags, char *s, int *i, int size);
+void 	ft_positive_help_2_p(t_flags *flags, int *c, int size);
+void 	ft_minus_help_2_p(t_flags *flags, char *s, int *c, int size);
+void 	ft_minus_help_p(t_flags *flags, char *s, int *i, int size);
 
 #endif 

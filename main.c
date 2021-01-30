@@ -6,7 +6,7 @@
 /*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 22:23:26 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/29 00:35:54 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/30 18:15:41 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 int main()
 {
-	ft_printf("%05d\n", 43);
-	printf("%05d", 43);
+//char *d;
+//	char *d1;
+
+	ft_printf("%-*.*i|\n", 4, 2, 8);
+	printf("%-*.*i|\n", 4, 2, 8);
 	// printf("orig minus : %-6.6d numb\n", 13);
 	// ft_printf("  my minus : %-6.6d numb\n", 13);
 	// printf("orig minus : %-2.2d numb\n", 13);
