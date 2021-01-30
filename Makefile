@@ -6,11 +6,11 @@
 #    By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/11 22:15:42 by paminna           #+#    #+#              #
-#    Updated: 2021/01/29 22:22:39 by paminna          ###   ########.fr        #
+#    Updated: 2021/01/30 20:35:05 by paminna          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = ft_parser.c ft_printf.c ft_printf_utils.c ft_char.c ft_numbers.c ft_process_p.c ft_numbers_2.c ft_process_x.c ft_process_bigx.c
+SRCS = ft_parser.c ft_printf.c ft_printf_utils.c ft_char.c ft_numbers.c ft_process_p.c ft_numbers_u.c ft_process_x.c ft_process_bigx.c  ft_numbers_help.c ft_process_p_help.c
 
 OBJS = ${SRCS:.c=.o}
 

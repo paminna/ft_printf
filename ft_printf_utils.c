@@ -6,7 +6,7 @@
 /*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/11 21:55:14 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/29 15:19:18 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/30 20:02:45 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	ft_strchr(const char *s, int c)
 	return (0);
 }
 
-int	ft_strlen(const char *s)
+int		ft_strlen(const char *s)
 {
 	int	i;
 
@@ -38,7 +38,7 @@ int	ft_strlen(const char *s)
 	return (i);
 }
 
-void ft_putchar(t_flags *flags, char sym)
+void	ft_putchar(t_flags *flags, char sym)
 {
 	write(1, &sym, 1);
 	flags->len++;

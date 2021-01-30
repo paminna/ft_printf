@@ -6,13 +6,13 @@
 /*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/09 16:06:24 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/30 18:13:55 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/30 20:16:29 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_zero_minus(char *str, t_flags *flags)
+int		ft_zero_minus(char *str, t_flags *flags)
 {
 	int i;
 
@@ -30,13 +30,13 @@ int ft_zero_minus(char *str, t_flags *flags)
 	return (i);
 }
 
-int ft_check_width(t_flags *flags, char *str, va_list arg)
+int		ft_check_width(t_flags *flags, char *str, va_list arg)
 {
 	int i;
 
 	i = 0;
 	if (str[i] == '*')
-	{	
+	{
 		i++;
 		flags->star = 1;
 		flags->width = va_arg(arg, int);
@@ -52,7 +52,7 @@ int ft_check_width(t_flags *flags, char *str, va_list arg)
 	return (i);
 }
 
-int ft_check_precision(t_flags *flags, char *str, va_list arg)
+int		ft_check_precision(t_flags *flags, char *str, va_list arg)
 {
 	int i;
 
@@ -70,17 +70,18 @@ int ft_check_precision(t_flags *flags, char *str, va_list arg)
 		{
 			flags->precision = 0;
 			while (str[i] >= '0' && str[i] <= '9')
-				flags->precision = flags->precision * 10 + str[i++] -'0';
+				flags->precision = flags->precision * 10 + str[i++] - '0';
 		}
 	}
 	return (i);
 }
 
-t_flags ft_check_added_flags(t_flags *flags)
+t_flags	ft_check_added_flags(t_flags *flags)
 {
 	if (flags->precision < 0)
 		flags->precision = -1;
-	if (flags->zero == 1 && flags->precision > -1 && ft_strchr("diuxX", flags->c) != 0)
+	if (flags->zero == 1 && flags->precision > -1
+	&& ft_strchr("diuxX", flags->c) != 0)
 		flags->zero = 0;
 	if (flags->width < 0)
 	{
@@ -90,19 +91,19 @@ t_flags ft_check_added_flags(t_flags *flags)
 	return (*flags);
 }
 
-t_flags ft_parser(t_flags *flags, const char *str, va_list arg)
+t_flags	ft_parser(t_flags *flags, const char *str, va_list arg)
 {
-	int i;
-	char c;
+	int		i;
+	char	c;
 
 	i = 0;
 	flags->zero = 0;
 	flags->minus = 0;
 	flags->type = 0;
 	flags->width = 0;
-	flags->star= 0;
+	flags->star = 0;
 	flags->precision = -1;
-	flags->c = 0;
+	flags->c = '0';
 	if (ft_strchr("cspdiuxX%", str[i]) == 0)
 	{
 		i += ft_zero_minus((char*)&str[i], flags);

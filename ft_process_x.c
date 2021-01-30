@@ -6,7 +6,7 @@
 /*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 19:27:53 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/30 16:08:13 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/30 20:38:34 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,11 @@ char	*ft_itoa_base(unsigned int n, unsigned int base)
 	return (res);
 }
 
-void 	ft_process_x(t_flags *flags, va_list arg)
+void	ft_process_x(t_flags *flags, va_list arg)
 {
-	int i;
-	char *s;
-	int size;
+	int		i;
+	char	*s;
+	int		size;
 
 	s = ft_itoa_base(va_arg(arg, unsigned int), 16);
 	i = 0;

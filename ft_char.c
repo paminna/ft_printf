@@ -6,16 +6,16 @@
 /*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/27 01:20:10 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/30 15:08:59 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/30 19:34:36 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void ft_process_char(t_flags *flags, va_list arg)
+void	ft_process_char(t_flags *flags, va_list arg)
 {
 	int ch;
-	
+
 	ch = va_arg(arg, int);
 	if (flags->minus == 1)
 		ft_putchar(flags, (char)ch);
@@ -34,11 +34,11 @@ void ft_process_char(t_flags *flags, va_list arg)
 		ft_putchar(flags, (char)ch);
 }
 
-void ft_process_string(t_flags *flags, va_list arg)
+void	ft_process_string(t_flags *flags, va_list arg)
 {
-	char *s;
-	int i;
-	int size;
+	char	*s;
+	int		i;
+	int		size;
 
 	i = 0;
 	s = va_arg(arg, char*);
@@ -57,16 +57,16 @@ void ft_process_string(t_flags *flags, va_list arg)
 		ft_putchar(flags, s[i++]);
 	if (flags->minus == 1 && flags->width > size)
 		while (flags->width != size)
-			{
-				ft_putchar(flags, ' ');
-				flags->width--;
-			}
+		{
+			ft_putchar(flags, ' ');
+			flags->width--;
+		}
 }
 
-void ft_process_percent(t_flags *flags)
+void	ft_process_percent(t_flags *flags)
 {
 	char ch;
-	
+
 	ch = '%';
 	if (flags->minus == 1)
 		ft_putchar(flags, ch);

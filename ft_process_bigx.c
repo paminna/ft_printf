@@ -6,16 +6,16 @@
 /*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 22:01:50 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/29 22:01:58 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/30 19:32:18 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_itoa_base_X(unsigned int n, unsigned int base)
+char	*ft_itoa_base_bigx(unsigned int n, unsigned int base)
 {
-	char			*res;
-	int				len;
+	char	*res;
+	int		len;
 
 	len = n_len_base(n);
 	res = (char*)malloc(len + 1);
@@ -32,13 +32,13 @@ char	*ft_itoa_base_X(unsigned int n, unsigned int base)
 	return (res);
 }
 
-void 	ft_process_X(t_flags *flags, va_list arg)
+void	ft_process_bigx(t_flags *flags, va_list arg)
 {
-	int i;
-	char *s;
-	int size;
+	int		i;
+	char	*s;
+	int		size;
 
-	s = ft_itoa_base_X(va_arg(arg, unsigned int), 16);
+	s = ft_itoa_base_bigx(va_arg(arg, unsigned int), 16);
 	i = 0;
 	size = ft_strlen(s);
 	if (flags->minus == 1)

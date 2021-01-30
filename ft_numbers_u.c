@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_numbers_2.c                                     :+:      :+:    :+:   */
+/*   ft_numbers_u.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: paminna <paminna@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/29 18:31:14 by paminna           #+#    #+#             */
-/*   Updated: 2021/01/29 21:56:23 by paminna          ###   ########.fr       */
+/*   Updated: 2021/01/30 19:33:29 by paminna          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int		n_len_u(unsigned int n)
 
 char	*ft_itoa_u(unsigned int n)
 {
-	char			*res;
-	int				len;
+	char	*res;
+	int		len;
 
 	len = n_len_u(n);
 	res = (char*)malloc(len + 1);
@@ -47,11 +47,11 @@ char	*ft_itoa_u(unsigned int n)
 	return (res);
 }
 
-void ft_process_u(t_flags *flags, va_list arg)
+void	ft_process_u(t_flags *flags, va_list arg)
 {
-	int i;
-	char *s;
-	int size;
+	int		i;
+	char	*s;
+	int		size;
 
 	s = ft_itoa_u(va_arg(arg, unsigned int));
 	i = 0;
